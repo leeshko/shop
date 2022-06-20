@@ -5,14 +5,14 @@ import "./App.scss";
 import ShopPage from "./components/pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInSignUp from "./components/signInSignUp/signInSignUp.component";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import { addCollectionAndDocuments, auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "./components/redux/user/userActions";
 import CheckoutPage from "./components/pages/checkout/checkout.component";
-import CategoryPage from './components/pages/collection/collection.component';
 
 const App = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
+  const collectionsArray = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const App = () => {
         });
       } else {
         dispatch(setCurrentUser(userAuth));
+        dispatch(addCollectionAndDocuments("collections", collectionsArray));
       }
     });
 
@@ -52,7 +53,6 @@ const App = () => {
           element={currentUser ? <Navigate to='/' /> : <SignInSignUp />}
         />
         <Route exact path='/checkout' element={<CheckoutPage />} />
-        {/* <Route path="/shop/:categoryId" element={<CategoryPage />} /> */}
       </Routes>
     </>
   );
