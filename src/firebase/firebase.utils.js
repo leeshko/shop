@@ -65,9 +65,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
   const snapShot = await getDoc(userRef);
 
-  // const collectionSnapshot = await getDocs(collectionRef);
-  // console.log(333, collectionSnapshot.docs.map((doc) => doc.data()));
-
   if (!snapShot.exists()) {
     const { displayName, email } = userAuth;
     const createdAt = new Date();
@@ -89,7 +86,10 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   };
 };
 
-export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
   const collectionRef = collection(db, collectionKey);
   console.log(collectionRef);
   // const batch = db.batch();
@@ -99,6 +99,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   // }
   // );
   // return await batch.commit();
-}
+};
 
 export default app;

@@ -16,12 +16,10 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+    const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
-        const { userRef, onSnapshot } = await createUserProfileDocument(
-          userAuth
-        );
-
+        const { userRef, onSnapshot } = await createUserProfileDocument(userAuth);
+  
         onSnapshot(userRef, (snapshot) => {
           dispatch(
             setCurrentUser({
@@ -31,15 +29,17 @@ const App = () => {
           );
         });
       } else {
-        dispatch(setCurrentUser(userAuth));
-        dispatch(addCollectionAndDocuments("collections", collectionsArray));
+        dispatch(setCurrentUser(null));
+        if (collectionsArray && collectionsArray.length) {
+          dispatch(addCollectionAndDocuments("collections", collectionsArray));
+        }
       }
     });
-
+  
     return () => {
       unsubscribeFromAuth();
     };
-  }, []);
+  }, [dispatch, collectionsArray]);
 
   return (
     <>
