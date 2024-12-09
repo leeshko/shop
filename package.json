@@ -1,7 +1,7 @@
 {
   "name": "complete-react-course",
   "version": "0.1.0",
-  "private": true,
+  "homepage" : "http://leeshko.github.io/shop",
   "engines": {
     "node": "14.x"
   },
