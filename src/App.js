@@ -5,10 +5,15 @@ import "./App.scss";
 import ShopPage from "./components/pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInSignUp from "./components/signInSignUp/signInSignUp.component";
-import { addCollectionAndDocuments, auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {
+  addCollectionAndDocuments,
+  auth,
+  createUserProfileDocument,
+} from "./firebase/firebase.utils";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser } from "./components/redux/user/userActions";
 import CheckoutPage from "./components/pages/checkout/checkout.component";
+import ContactPage from "./components/pages/contact/contact.component";
 
 const App = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -18,8 +23,10 @@ const App = () => {
   useEffect(() => {
     const unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
-        const { userRef, onSnapshot } = await createUserProfileDocument(userAuth);
-  
+        const { userRef, onSnapshot } = await createUserProfileDocument(
+          userAuth
+        );
+
         onSnapshot(userRef, (snapshot) => {
           dispatch(
             setCurrentUser({
@@ -35,7 +42,7 @@ const App = () => {
         }
       }
     });
-  
+
     return () => {
       unsubscribeFromAuth();
     };
@@ -45,14 +52,15 @@ const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='shop/*' element={<ShopPage />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="shop/*" element={<ShopPage />} />
+        <Route path="contact/*" element={<ContactPage />} />
         <Route
           exact
-          path='/signIn'
-          element={currentUser ? <Navigate to='/' /> : <SignInSignUp />}
+          path="/signIn"
+          element={currentUser ? <Navigate to="/" /> : <SignInSignUp />}
         />
-        <Route exact path='/checkout' element={<CheckoutPage />} />
+        <Route exact path="/checkout" element={<CheckoutPage />} />
       </Routes>
     </>
   );

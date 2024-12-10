@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import { auth, signInAccount, signInWithGoogle } from "../../firebase/firebase.utils";
+import {
+  auth,
+  signInAccount,
+  signInWithGoogle,
+} from "../../firebase/firebase.utils";
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
 
@@ -28,31 +32,33 @@ const SignIn = () => {
   };
 
   return (
-    <div className='sign-in'>
+    <div className="sign-in">
       <h2>I already have an account</h2>
       <span>Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}>
         <FormInput
-          type='email'
-          name='email'
+          type="email"
+          name="email"
           value={email}
-          label='email'
+          label="email"
           required
           handleChange={handleChange}
         />
         <FormInput
-          type='password'
-          name='password'
+          type="password"
+          name="password"
           value={password}
-          label='password'
+          label="password"
           required
           handleChange={handleChange}
         />
 
-        <div className='buttons'>
-          <CustomButton type='submit'>sign in</CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+        <div className="buttons">
+          <CustomButton type="submit" signin={true}>
+            sign in
+          </CustomButton>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn signin={true}>
             Sign in with Google
           </CustomButton>
         </div>
