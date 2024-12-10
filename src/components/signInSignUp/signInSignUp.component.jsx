@@ -1,7 +1,7 @@
 import React from "react";
 import SignIn from "../sign-in/sign-in.component";
 import SignUp from "../sign-up/signUp.component";
-// import "./signInSignUp.styles.scss";
+import "./signInSignUp.styles.scss";
 
 const SignInSignUp = () => {
   return (

@@ -3,7 +3,7 @@ import { auth, createAccount, createUserProfileDocument } from "../../firebase/f
 import CustomButton from "../custom-button/custom-button.component";
 import FormInput from "../form-input/form-input.component";
 
-// import "./signUp.styles.scss";
+import "./signUp.styles.scss";
 
 const SignUp = () => {
   const [displayName, setDisplayName] = useState("");
