@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from 'react-redux';
 import MenuItem from "../menu-item/menu-item.component";
-import "./directory.style.scss";
+// import "./directory.style.scss";
 
 const Directory = () => {
 

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import CheckoutItem from "../../checkout-item/checkout-item.component";
 import StripeCheckoutButton from "../../stripe-button/stripe-button.component";
-import "./checkout.styles.scss";
+// import "./checkout.styles.scss";
 
 const CheckoutPage = () => {
   const cartItems = useSelector((store) => store.cart.cartItems);

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import CollectionItem from "../../collection-item/collection-item.component";
 
-import "./collection.styles.scss";
+// import "./collection.styles.scss";
 
 const CollectionPage = () => {
   const { collectionId } = useParams();
