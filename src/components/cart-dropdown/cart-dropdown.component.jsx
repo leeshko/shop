@@ -5,7 +5,7 @@ import CartItem from "../cart-item/cart-item.component";
 import CustomButton from "../custom-button/custom-button.component";
 import { showCartToggle } from '../redux/cart/cartActions';
 
-import "./cart-dropdown.styles.scss";
+// import "./cart-dropdown.styles.scss";
 
 const CartDropdown = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
