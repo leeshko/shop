@@ -3,21 +3,22 @@
   "version": "0.1.0",
   "homepage": "https://leeshko.github.io/shop",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "dependencies": {
     "firebase": "^9.6.1",
-    "node-sass": "4.14.1",
     "react": "^17.0.1",
     "react-dom": "^16.8.6",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^5.0.1",
     "react-stripe-checkout": "^2.6.3",
     "redux": "^4.1.2",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "reselect": "^4.1.5",
+    "sass": "^1.82.0",
+    "scss": "^0.2.4",
     "styled-components": "^5.3.5"
   },
   "scripts": {
@@ -36,5 +37,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
+  }
 }
